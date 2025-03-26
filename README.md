@@ -48,31 +48,4 @@ The following Python libraries are used for data analysis, visualization, and ma
 5. **Hyperparameter Tuning**: RandomizedSearchCV and GridSearchCV are used to find the best hyperparameters for the models.
 6. **Final Model**: The best performing model is selected for final predictions.
 
-## Example Code
-```python
-# Import necessary libraries
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.model_selection import train_test_split, cross_val_score
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import classification_report
 
-# Load dataset
-df = pd.read_csv('heart-disease.csv')
-
-# Preprocess data, train models, and evaluate performance
-X = df.drop('target', axis=1)
-y = df['target']
-
-# Split the data
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-# Train a model (Logistic Regression example)
-model = LogisticRegression(max_iter=1000)
-model.fit(X_train, y_train)
-
-# Evaluate the model
-y_pred = model.predict(X_test)
-print(classification_report(y_test, y_pred))
